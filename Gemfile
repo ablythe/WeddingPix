@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,10 +46,11 @@ gem 'figaro'
 gem 'activesupport'
 gem 'slim-rails'
 gem 'httparty'
+gem 'paperclip', "~> 4.2"
+gem 'pry-rails'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'quiet_assets'
   gem 'factory_girl_rails'

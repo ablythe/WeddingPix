@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521200542) do
+ActiveRecord::Schema.define(version: 20150526221747) do
+
+  create_table "instagram_apis", force: :cascade do |t|
+    t.string  "key"
+    t.integer "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -24,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150521200542) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "instagram_api"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
