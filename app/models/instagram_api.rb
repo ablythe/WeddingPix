@@ -1,5 +1,5 @@
 require 'open-uri'
-class InstagramApi < ActiveRecord::Base
+class InstagramApi 
   include HTTParty
   
   base_uri 'api.instagram.com'

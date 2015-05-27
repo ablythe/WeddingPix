@@ -1,6 +1,6 @@
 require "open-uri"
 
-class Photo < ActiveRecord::Base
+class Photo 
   def print_image_from_url url 
     open('image.png', 'wb') do |file|
       file << open(url).read
