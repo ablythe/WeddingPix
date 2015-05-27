@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     verify_token = params["hub.verify_token"]
     response = Instagram.meet_challenge(params, verify_token)
     if response
-      
+      render json: response
     end
   end
 end
