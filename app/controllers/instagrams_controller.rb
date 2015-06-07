@@ -5,6 +5,7 @@ class InstagramsController < ApplicationController
   end
 
   def subscribe
-
+    response = InstagramApi.create_subscription params["tag"]
+    render json: response
   end
 end

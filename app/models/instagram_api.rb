@@ -7,8 +7,8 @@ class InstagramApi < ActiveRecord::Base
 end
   
   def self.create_subscription tag
-    Instagram.create_subscription({object: 'tag', callback_url: 'https://www.weddingsnaps.herokuapp.com/subscription', aspect: 'media', object_id: "#{tag}"})
-    
+    response =Instagram.create_subscription({object: 'tag', callback_url: 'https://www.weddingsnaps.herokuapp.com/subscription', aspect: 'media', object_id: "#{tag}"})
+    response
   end
 
 
