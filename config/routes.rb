@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   resources :photos
 
-  get 'subscription' => 'instagrams#callback'
+  get 'subscription' => 'instagrams#challenge'
+  post 'subscription' = 'instagrams#callback'
 
   get "tag" => 'instagrams#subscribe'
   # The priority is based upon order of creation: first created -> highest priority.

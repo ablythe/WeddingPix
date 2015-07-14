@@ -1,7 +1,11 @@
 class InstagramsController < ApplicationController
 
-  def callback
+  def challenge
     render plain: "#{params["hub.challenge"]}"
+  end
+
+  def callback
+    render json: response
   end
 
   def subscribe
@@ -11,6 +15,6 @@ class InstagramsController < ApplicationController
       client_secret:"#{ENV['instagram_client_secret']}",
     }
     response = Instagram.create_subscription("tag",'https://weddingsnaps.herokuapp.com/subscription', options)
-    render json: response
+    render plain: 'ok'
   end
 end
