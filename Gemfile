@@ -35,6 +35,7 @@ gem 'httparty'
 gem 'instagram'
 gem 'figaro'
 gem 'rails_12factor'
+gem 'puma'
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
