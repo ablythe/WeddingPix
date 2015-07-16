@@ -5,6 +5,13 @@ class InstagramsController < ApplicationController
   end
 
   def callback
+    photo_data = InstagramDataParser.new(response).get_data_for_photo
+    photo_data
+    .map {|p| Photo.find_or_create_by(
+      insta_id: photo_data[:id], 
+      insta_url: photo_data[:link]
+      )}
+    
     render json: response
   end
 
