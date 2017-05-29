@@ -13,7 +13,6 @@ end
       object_id: tag
     }
     Instagram.create_subscription("tag",'https://www.weddingsnaps.herokuapp.com/subscription', options)
-    binding.pry
   end
 
 

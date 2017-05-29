@@ -3,23 +3,28 @@ require 'open-uri'
 class Photo < ActiveRecord::Base
   validates :insta_id, uniqueness: true
 
-  after_create do 
-    print_from_url
+  after_create do
+    save_to_computer
+    overlay 
+    print
   end
 
-
-  def print_from_url 
+  def save_to_computer
     open("#{insta_id}.png", 'wb') do |file|
       file << open(insta_url).read
     end
-    system('lpr', "#{insta_id}.png") or raise "lpr failed"
-  end 
+  end
+
+  def print
+    system('lpr', "-o fit-to-page", "#{insta_id}.png") or raise "lpr failed"
+  end
 
   def overlay
     base = Magick::Image.read("#{insta_id}.png").first
-    overlay = Magick::Image.read("h&d.png").first
-    base.composite!(overlay, 0, 0, Magick::OverCompositeOp)
-    base.write("#{insta_id}.png")
+    resized = base.resize_to_fill(580)
+    template = Magick::Image.read("template.png").first
+    template.composite!(resized, 10, 10, Magick::OverCompositeOp)
+    template.write("#{insta_id}.png")
   end
 
 
